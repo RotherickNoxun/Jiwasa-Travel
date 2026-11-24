@@ -37,7 +37,7 @@ export default function Header() {
   return (
     <>
       {/* Top quick contact bar */}
-      <div className="bg-jiwasa-darkteal text-white text-xs py-2 px-4 border-b border-jiwasa-teal/30">
+      <div className="bg-jiwasa-darkteal text-white text-xs py-1.5 px-4 border-b border-jiwasa-teal/30">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
           <div className="flex items-center gap-3">
             <span className="inline-flex items-center gap-1.5 text-jiwasa-lime font-medium">
@@ -49,7 +49,7 @@ export default function Header() {
               {t.topbar.address}
             </span>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4">
             <LanguageSwitcher variant="topbar" />
             <a
               href={`tel:${COMPANY_INFO.phone}`}
@@ -75,15 +75,15 @@ export default function Header() {
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-md py-3"
-            : "bg-white py-4 shadow-sm"
+            ? "bg-white/95 backdrop-blur-md shadow-md py-2.5"
+            : "bg-white py-3 shadow-xs"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-4">
             {/* Logo */}
-            <Link href="#inicio" className="flex items-center gap-3 group">
-              <div className="relative h-12 w-44 sm:h-14 sm:w-52">
+            <Link href="#inicio" className="flex items-center gap-3 shrink-0 group">
+              <div className="relative h-11 w-40 sm:h-12 sm:w-48">
                 <Image
                   src="/images/logo-color.png"
                   alt="Jiwasa Travel Ecoturismo"
@@ -95,26 +95,26 @@ export default function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden xl:flex items-center gap-5">
+            <nav className="hidden xl:flex items-center gap-3 2xl:gap-5">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-sm font-medium text-jiwasa-charcoal hover:text-jiwasa-teal tracking-wide transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-jiwasa-teal hover:after:w-full after:transition-all after:duration-300"
+                  className="text-[13px] 2xl:text-sm font-medium text-jiwasa-charcoal hover:text-jiwasa-teal whitespace-nowrap transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-jiwasa-teal hover:after:w-full after:transition-all after:duration-300"
                 >
                   {link.name}
                 </Link>
               ))}
             </nav>
 
-            {/* Language Switcher & CTA Button */}
-            <div className="hidden lg:flex items-center gap-3">
+            {/* Language Switcher & Compact Elegant CTA Button */}
+            <div className="hidden xl:flex items-center gap-3 shrink-0">
               <LanguageSwitcher variant="header" />
               <Link
                 href="#contacto"
-                className="inline-flex items-center gap-2 bg-jiwasa-teal hover:bg-jiwasa-darkteal text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm hover:shadow transition-all transform hover:-translate-y-0.5"
+                className="inline-flex items-center gap-1.5 bg-jiwasa-teal hover:bg-jiwasa-darkteal text-white text-xs font-semibold px-4 py-2 rounded-full shadow-xs hover:shadow transition-all whitespace-nowrap transform hover:-translate-y-0.5"
               >
-                <Compass className="w-4 h-4 text-jiwasa-lime" />
+                <Compass className="w-3.5 h-3.5 text-jiwasa-lime shrink-0" />
                 <span>{t.nav.cta}</span>
               </Link>
             </div>
@@ -124,7 +124,7 @@ export default function Header() {
               <LanguageSwitcher variant="header" />
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 text-jiwasa-charcoal hover:text-jiwasa-teal focus:outline-none"
+                className="p-1.5 rounded-lg text-jiwasa-charcoal hover:text-jiwasa-teal hover:bg-slate-100 focus:outline-none transition-colors"
                 aria-label="Abrir menú de navegación"
               >
                 {isMobileMenuOpen ? (
@@ -155,19 +155,19 @@ export default function Header() {
                 <Link
                   href="#contacto"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 bg-jiwasa-teal text-white py-2.5 rounded-lg font-semibold text-sm"
+                  className="flex items-center justify-center gap-2 bg-jiwasa-teal text-white py-2.5 rounded-full font-semibold text-sm shadow-xs"
                 >
                   <Compass className="w-4 h-4 text-jiwasa-lime" />
-                  {t.nav.planCustom}
+                  <span>{t.nav.planCustom}</span>
                 </Link>
                 <a
                   href={COMPANY_INFO.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 bg-jiwasa-lime-soft text-jiwasa-forest border border-jiwasa-lime/30 py-2.5 rounded-lg font-semibold text-sm"
+                  className="flex items-center justify-center gap-2 bg-jiwasa-lime-soft text-jiwasa-forest border border-jiwasa-lime/30 py-2.5 rounded-full font-semibold text-sm"
                 >
                   <MessageCircle className="w-4 h-4 text-jiwasa-lime" />
-                  {t.topbar.whatsapp}
+                  <span>{t.topbar.whatsapp}</span>
                 </a>
               </div>
             </div>
